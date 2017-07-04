@@ -51,7 +51,7 @@ var randomString = window.app.libs.randomString;
 ### API &mdash; Options
 
 Option | Default | Takes | Description
------------- | -------------
+----- | ----- | ----- | ----- |
 `ambiguous` | `true` | `Bolean` | Adds <code>~`_=+\&verbar;/</code> to charset.
 `enclosures` | `true` | `Bolean` | Adds `(){}[]<>` to charset.
 `lowercase` | `true` | `Bolean` | Adds `a-z` to charset.
