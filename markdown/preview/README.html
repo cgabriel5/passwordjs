@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>random-string</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/github-markdown.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/pilcrow.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/hljs-github.min.css" />
+</head>
+
+<body>
+    <article class="markdown-body"><h1 id="random-string">random-string</h1>
+<p>JavaScript library that creates random strings.</p>
+<h5 id="table-of-contents">Table of Contents</h5>
+<p><a href="#what-it-does">What It Does</a><br><a href="#add-to-project">Add To Project</a><br><a href="#access-library">Access Library</a><br><a href="#api">API</a>  </p>
+<ul class="list">
+<li><a href="#signature-api">Signature</a>  </li>
+<li><a href="#options-api">Options</a>  </li>
+</ul>
+<p><a href="#usage">Usage</a><br><a href="#contributing">Contributing</a><br><a href="#license">License</a>  </p>
+<p><a name="what-it-does"></a></p>
+<h3 id="what-it-does">What It Does</h3>
+<p>Creates random formatted and unformatted strings.</p>
+<p><a name="add-to-project"></a></p>
+<h3 id="add-to-project">Add To Project</h3>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"path/to/lib.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p><a name="access-library"></a></p>
+<h3 id="access-library">Access Library</h3>
+<pre class="hljs"><code><span class="hljs-keyword">var</span> randomString = <span class="hljs-built_in">window</span>.app.libs.randomString;</code></pre><p><a name="api"></a></p>
+<h3 id="api">API</h3>
+<p><a name="signature-api"></a></p>
+<h3 id="api-&mdash;-signature">API &mdash; Signature</h3>
+<pre class="hljs"><code><span class="hljs-comment">/**
+ * @param  {Object: Optional} [The user's provided options, if any.]
+ * @return {String}           [The generated string.]
+ */</span></code></pre><p><a name="options-api"></a></p>
+<h3 id="api-&mdash;-options">API &mdash; Options</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Takes</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ambiguous</code></td>
+<td><code>true</code></td>
+<td><code>Bolean</code></td>
+<td>Adds <code>~`_=+\&verbar;/</code> to charset.</td>
+</tr>
+<tr>
+<td><code>enclosures</code></td>
+<td><code>true</code></td>
+<td><code>Bolean</code></td>
+<td>Adds <code>(){}[]&lt;&gt;</code> to charset.</td>
+</tr>
+<tr>
+<td><code>lowercase</code></td>
+<td><code>true</code></td>
+<td><code>Bolean</code></td>
+<td>Adds <code>a-z</code> to charset.</td>
+</tr>
+<tr>
+<td><code>uppercase</code></td>
+<td><code>true</code></td>
+<td><code>Bolean</code></td>
+<td>Adds <code>A-Z</code> to charset.</td>
+</tr>
+<tr>
+<td><code>numbers</code></td>
+<td><code>true</code></td>
+<td><code>Bolean</code></td>
+<td>Adds <code>0-9</code> to charset.</td>
+</tr>
+<tr>
+<td><code>punctuation</code></td>
+<td><code>true</code></td>
+<td><code>Bolean</code></td>
+<td>Adds <code>.?!,;:-&#39;&quot;</code> to charset.</td>
+</tr>
+<tr>
+<td><code>symbols</code></td>
+<td><code>true</code></td>
+<td><code>Bolean</code></td>
+<td>Adds <code>@#$%^&amp;*</code> to charset.</td>
+</tr>
+<tr>
+<td><code>similar</code></td>
+<td><code>true</code></td>
+<td><code>Bolean</code></td>
+<td>Keeps <code>1iIlL0oO</code> characters in charset.</td>
+</tr>
+<tr>
+<td><code>spaces</code></td>
+<td><code>false</code></td>
+<td><code>Bolean</code></td>
+<td>Allows spaces in charset.</td>
+</tr>
+<tr>
+<td><code>hexonly</code></td>
+<td><code>false</code></td>
+<td><code>Bolean</code></td>
+<td>Only <code>A-F0-9</code> allowed in charset. May only be used with: <code>format</code>, <code>include</code>, <code>exclude</code>, &amp; <code>length</code>. Other options are ignored.</td>
+</tr>
+<tr>
+<td><code>format</code></td>
+<td><code>&quot;&quot;</code></td>
+<td><code>String</code></td>
+<td>Format random string should follow. Question marks, <code>?</code>, are replaced with a random character.</td>
+</tr>
+<tr>
+<td><code>charset</code></td>
+<td><code>&quot;&quot;</code></td>
+<td><code>String</code></td>
+<td>String containing custom charset. May only be used with: <code>format</code>, <code>include</code>, <code>exclude</code>, &amp; <code>length</code>. Other options are ignored.</td>
+</tr>
+<tr>
+<td><code>include</code></td>
+<td><code>&quot;&quot;</code></td>
+<td><code>String</code></td>
+<td>Characters to include in charset. <code>includes</code> are added after removing any <code>excludes</code>.</td>
+</tr>
+<tr>
+<td><code>exclude</code></td>
+<td><code>&quot;&quot;</code></td>
+<td><code>String</code></td>
+<td>Characters to exclude from charset. <code>excludes</code> are removed before adding any <code>includes</code>.</td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td><code>20</code></td>
+<td><code>Number</code></td>
+<td>Length string should be.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="usage"></a></p>
+<h3 id="usage">Usage</h3>
+<pre class="hljs"><code><span class="hljs-comment">// random string examples</span>
+
+<span class="hljs-comment">// default options</span>
+<span class="hljs-built_in">console</span>.log(randomString());
+<span class="hljs-comment">// example output: k7pr+k$[&lt;[dA8IxE2&lt;R*</span>
+
+<span class="hljs-comment">// 20 character length, hexonly random string</span>
+<span class="hljs-built_in">console</span>.log(randomString({
+    <span class="hljs-string">"hexonly"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">"length"</span>: <span class="hljs-number">20</span>
+})); <span class="hljs-comment">// example output: 2A7AFC753320ECE14A28</span>
+
+<span class="hljs-comment">// alpha-numeric random string</span>
+<span class="hljs-built_in">console</span>.log(randomString({
+    <span class="hljs-string">"ambiguous"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"enclosures"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"lowercase"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"numbers"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">"punctuation"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"similar"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"spaces"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"symbols"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"uppercase"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">"hexonly"</span>: <span class="hljs-literal">false</span>
+})); <span class="hljs-comment">// example output: T3AGURN84R49KZJ89ECQ</span>
+
+<span class="hljs-comment">// special format random string</span>
+<span class="hljs-built_in">console</span>.log(randomString({
+    <span class="hljs-string">"ambiguous"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"enclosures"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"lowercase"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"numbers"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">"punctuation"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"similar"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"spaces"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"symbols"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"uppercase"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">"hexonly"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"format"</span>: <span class="hljs-string">"?????-?????-?????-?????-?????"</span>
+})); <span class="hljs-comment">// example output: NWE4S-FSX3C-2SPQA-GPJJ8-UABVT</span>
+
+<span class="hljs-comment">// custom charset random string</span>
+<span class="hljs-built_in">console</span>.log(randomString({
+    <span class="hljs-string">"charset"</span>: <span class="hljs-string">"01234567"</span>, <span class="hljs-comment">// use these chars</span>
+    <span class="hljs-string">"include"</span>: <span class="hljs-string">"9"</span>, <span class="hljs-comment">// include char(s) to the charset</span>
+    <span class="hljs-string">"exclude"</span>: <span class="hljs-string">"0"</span> <span class="hljs-comment">// exclude char(s) from the chars</span>
+})); <span class="hljs-comment">// example output: 46947632571726792192</span></code></pre><p><a name="contributing"></a></p>
+<h3 id="contributing">Contributing</h3>
+<p>Contributions are welcome! Found a bug, feel like documentation is lacking/confusing and needs an update, have performance/feature suggestions or simply found a typo? Let me know! :)</p>
+<p>See how to contribute <a href="https://github.com/cgabriel5/random-string/blob/master/CONTRIBUTING.md">here</a>.</p>
+<p><a name="license"></a></p>
+<h3 id="license">License</h3>
+<p>This project uses the <a href="https://github.com/cgabriel5/random-string/blob/master/LICENSE.txt">MIT License</a>.</p>
+    </article>
+</body>
+
+</html>
