@@ -4,16 +4,23 @@ JavaScript library that creates random strings.
 
 ##### Table of Contents
 
-[What It Does](#what-it-does)  
-[Add To Project](#add-to-project)  
-[Access Library](#access-library)  
-[API](#api)  
-* [Signature](#signature-api)  
-* [Options](#options-api)  
+- [Project Setup](#project-setup)
+- [What It Does](#what-it-does)
+- [Add To Project](#add-to-project)
+- [API](#api)
+- [Usage](#usage)
+    - [Default Options](#example-default-options)
+    - [Hexonly With Custom Length](#example-hexonly-length)
+    - [Alpha Numeric](#example-alpha-numeric)
+    - [Special Format](#example-special-format)
+    - [Custom Charset](#example-custom-charset)
+- [Contributing](#contributing)
+- [License](#license)
 
-[Usage](#usage)  
-[Contributing](#contributing)  
-[License](#license)  
+<a name="project-setup"></a>
+### Project Setup
+
+Project uses [this](https://github.com/cgabriel5/snippets/tree/master/boilerplate/application) boilerplate. Its [README.md](https://github.com/cgabriel5/snippets/blob/master/boilerplate/application/README.md#-read-before-use) contains instructions for `Yarn` and `Gulp`.
 
 <a name="what-it-does"></a>
 ### What It Does
@@ -23,81 +30,88 @@ Creates random formatted and unformatted strings.
 <a name="add-to-project"></a>
 ### Add To Project
 
+**Note**: The library, both minimized and unminimized, is located in `lib/`.
+
 ```html
 <script src="path/to/lib.js"></script>
-```
-
-<a name="access-library"></a>
-### Access Library
-
-```js
-var randomString = window.app.libs.randomString;
+<script>
+document.onreadystatechange = function() {
+    "use strict";
+    // once all resources have loaded
+    if (document.readyState == "complete") {
+        // get the library
+        var randomString = window.app.libs.randomString;
+        // logic...
+    }
+});
+</script>
 ```
 
 <a name="api"></a>
 ### API
 
-<a name="signature-api"></a>
-### API &mdash; Signature
+- [➜ randomString()](#main-function)
 
-```js
-/**
- * @param  {Object: Optional} [The user's provided options, if any.]
- * @return {String}           [The generated string.]
- */
-```
+<a name="main-function"></a>
+➜ **randomString(`options`)** &mdash; Generates random string.
 
-<a name="options-api"></a>
-### API &mdash; Options
-
-Option | Default | Takes | Description
------ | ----- | ----- | ----- |
-`ambiguous` | `true` | `Bolean` | Adds <code>~`_=+\&verbar;/</code> to charset.
-`enclosures` | `true` | `Bolean` | Adds `(){}[]<>` to charset.
-`lowercase` | `true` | `Bolean` | Adds `a-z` to charset.
-`uppercase` | `true` | `Bolean` | Adds `A-Z` to charset.
-`numbers` | `true` | `Bolean` | Adds `0-9` to charset.
-`punctuation` | `true` | `Bolean` | Adds `.?!,;:-'"` to charset.
-`symbols` | `true` | `Bolean` | Adds `@#$%^&*` to charset.
-`similar` | `true` | `Bolean` | Keeps `1iIlL0oO` characters in charset.
-`spaces` | `false` | `Bolean` | Allows spaces in charset.
-`hexonly` | `false` | `Bolean` | Only `A-F0-9` allowed in charset. May only be used with: `format`, `include`, `exclude`, & `length`. Other options are ignored.
-`format` | `""` | `String` | Format random string should follow. Question marks, `?`, are replaced with a random character.
-`charset` | `""` | `String` | String containing custom charset. May only be used with: `format`, `include`, `exclude`, & `length`. Other options are ignored.
-`include` | `""` | `String` | Characters to include in charset. `includes` are added after removing any `excludes`.
-`exclude` | `""` | `String` | Characters to exclude from charset. `excludes` are removed before adding any `includes`.
-`length` | `20` | `Number` | Length string should be.
+- `options` (`Object`, _Optional_)
+    - `source` (`String`) The source string (provided URL string).
+    - `ambiguous` (`Bolean`, _Default_: `true`) Adds <code>~`_=+\&verbar;/</code> to charset.
+    - `enclosures` (`Bolean`, _Default_: `true`) Adds `(){}[]<>` to charset.
+    - `lowercase` (`Bolean`, _Default_: `true`) Adds `a-z` to charset.
+    - `uppercase` (`Bolean`, _Default_: `true`) Adds `A-Z` to charset.
+    - `numbers` (`Bolean`, _Default_: `true`) Adds `0-9` to charset.
+    - `punctuation` (`Bolean`, _Default_: `true`) Adds `.?!,;:-'"` to charset.
+    - `symbols` (`Bolean`, _Default_: `true`) Adds `@#$%^&*` to charset.
+    - `similar` (`Bolean`, _Default_: `true`) Keeps `1iIlL0oO` characters in charset.
+    - `spaces` (`Bolean`, _Default_: `false`) Allows spaces in charset.
+    - `hexonly` (`Bolean`, _Default_: `false`) Only `A-F0-9` allowed in charset. May only be used with: `format`, `include`, `exclude`, & `length`. Other options are ignored.
+    - `format` (`String`, _Default_: `""`) Format random string should follow. Question marks, `?`, are replaced with a random character.
+    - `charset` (`String`, _Default_: `""`) String containing custom charset. May only be used with: `format`, `include`, `exclude`, & `length`. Other options are ignored.
+    - `include` (`String`, _Default_: `""`) Characters to include in charset. `includes` are added after removing any `excludes`.
+    - `exclude` (`String`, _Default_: `""`) Characters to exclude from charset. `excludes` are removed before adding any `includes`.
+    - `length` (`Number`, _Default_: `20`) Length string should be.
+- **Returns** randomly generated string.
 
 <a name="usage"></a>
 ### Usage
 
+<a name="example-default-options"></a>
+**Default Options** &mdash; Generate a string with the default options.
 ```js
-// random string examples
+console.log(randomString()); // example output: k7pr+k$[<[dA8IxE2<R*
+```
 
-// default options
-console.log(randomString());
-// example output: k7pr+k$[<[dA8IxE2<R*
-
-// 20 character length, hexonly random string
+<a name="example-hexonly-length"></a>
+**Hexonly With Custom Length** &mdash; Generate a string with only hex characters fixed at a 20 character length.
+```js
 console.log(randomString({
     "hexonly": true,
     "length": 20
 })); // example output: 2A7AFC753320ECE14A28
+```
 
-// alpha-numeric random string
+<a name="example-alpha-numeric"></a>
+**Alpha Numeric** &mdash; Generate a string with only uppercase letters and numbers.
+```js
 console.log(randomString({
     "ambiguous": false,
     "enclosures": false,
     "lowercase": false,
-    "numbers": true,
+    "numbers": true, // <---
     "punctuation": false,
     "similar": false,
     "spaces": false,
     "symbols": false,
-    "uppercase": true,
+    "uppercase": true, // <---
     "hexonly": false
 })); // example output: T3AGURN84R49KZJ89ECQ
+```
 
+<a name="example-special-format"></a>
+**Special Format** &mdash; Generate a string with a custom format.
+```js
 // special format random string
 console.log(randomString({
     "ambiguous": false,
@@ -112,12 +126,15 @@ console.log(randomString({
     "hexonly": false,
     "format": "?????-?????-?????-?????-?????"
 })); // example output: NWE4S-FSX3C-2SPQA-GPJJ8-UABVT
+```
 
-// custom charset random string
+<a name="example-custom-charset"></a>
+**Custom Charset** &mdash; Generate a string with a custom character set.
+```js
 console.log(randomString({
     "charset": "01234567", // use these chars
     "include": "9", // include char(s) to the charset
-    "exclude": "0" // exclude char(s) from the chars
+    "exclude": "0" // exclude char(s) from the charset
 })); // example output: 46947632571726792192
 ```
 
