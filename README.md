@@ -56,7 +56,6 @@ document.onreadystatechange = function() {
 ➜ **randomString(`options`)** &mdash; Generates random string.
 
 - `options` (`Object`, _Optional_)
-    - `source` (`String`) The source string (provided URL string).
     - `ambiguous` (`Bolean`, _Default_: `true`) Adds <code>~`_=+\&verbar;/</code> to charset.
     - `enclosures` (`Bolean`, _Default_: `true`) Adds `(){}[]<>` to charset.
     - `lowercase` (`Bolean`, _Default_: `true`) Adds `a-z` to charset.
