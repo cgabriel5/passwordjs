@@ -9,11 +9,7 @@ JavaScript library that creates random strings.
 - [Add To Project](#add-to-project)
 - [API](#api)
 - [Usage](#usage)
-    - [Default Options](#example-default-options)
-    - [Hexonly With Custom Length](#example-hexonly-length)
-    - [Alpha Numeric](#example-alpha-numeric)
-    - [Special Format](#example-special-format)
-    - [Custom Charset](#example-custom-charset)
+    - [Examples](#usage-examples)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -75,6 +71,19 @@ document.onreadystatechange = function() {
 
 <a name="usage"></a>
 ### Usage
+
+**Note**: The following are just examples and is not an exhaustive list of variations possible.
+
+<a name="usage-examples-toc"></a>
+- [Examples](#usage-examples)
+    - [Default Options](#example-default-options)
+    - [Hexonly With Custom Length](#example-hexonly-length)
+    - [Alpha Numeric](#example-alpha-numeric)
+    - [Special Format](#example-special-format)
+    - [Custom Charset](#example-custom-charset)
+
+<a name="usage-examples"></a>
+### Examples
 
 <a name="example-default-options"></a>
 **Default Options** &mdash; Generate a string with the default options.
